@@ -89,8 +89,7 @@ thead tr th, tbody tr td, tbody tr th {
     font-weight: 600;
 }
 input:focus {
-  outline-color: transparent;
-  outline-style: none;
+    border: transparent;
 }
 .table-bordered thead th, .table-bordered thead td {
 	border-bottom-width: 1px;
@@ -156,19 +155,6 @@ span.yalo-text {
 span.red-text {
     color: #ff0000;
 }
-
-/* scrollbar */
-::-webkit-scrollbar-track {
-    background-color: #f1f1f1
-}
-::-webkit-scrollbar {
-    width: 9px;
-    background-color: #f1f1f1
-}
-::-webkit-scrollbar-thumb {
-    background-color: #0d9b49
-}
-
 
 /*projec serach css*/
 
@@ -1298,7 +1284,7 @@ input:focus {
     color: #fff;
     font-size: 18px;
     padding-bottom: 45px;
-    padding-top: 200px;
+    padding-top: 100px;
 }
 
 .project-search-area:before {
@@ -2836,9 +2822,20 @@ ul.required-skills-list li p span {
     border: 1px solid #e1e1e1;
     border-radius: 2px;
     padding: 0px 10px;
-    font-size: 9px;
+    font-size: 11px;
     margin-bottom: 10px;
     max-width: 280px;
+}
+
+.select2-results__options::-webkit-scrollbar-track {
+    background-color: #f1f1f1
+}
+.select2-results__options::-webkit-scrollbar {
+    width: 3px;
+    background-color: #f1f1f1
+}
+.select2-results__options::-webkit-scrollbar-thumb {
+    background-color: #0d9b49
 }
 .login-freelancer-profile-single-item-input.full-width input, .login-freelancer-profile-single-item-input.full-width textarea {
     max-width: 100%;

@@ -17,7 +17,7 @@
 							<a href="#profile-setting" >Profile Setting</a>
 						</li>
 						<li>
-							<a href="#password" >My Profile</a>
+							<a href="#myProfile" >My Profile</a>
 						</li>
 						<li>
 							<a href="#password" >Password</a>
@@ -26,7 +26,7 @@
 							<a href="#membership-bid" >Membership & Bid</a>
 						</li>
 						<li>
-							<a href="#membership-bid" >Languages</a>
+							<a href="#languages" >Languages</a>
 						</li>
 					</ul>
 				</div>
@@ -235,7 +235,7 @@
 							</div>
 						</form>
 					</div>
-					<div id="profiles" class="box-white-bg padding-to login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
+					<div id="myProfile" class="box-white-bg padding-to login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
 						<div class="login-freelancer-profile-single-item-headding overflow-fix">
 							<h2>My Profile</h2>
 							@if(session('successm'))
@@ -345,7 +345,7 @@
 							</div>
 						</form>
 					</div>
-					<div id="profile" class="box-white-bg padding-to  login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
+					<div id="languages" class="box-white-bg padding-to  login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
 					<form class="login-freelancer-profile-single-item-payment overflow-fix" role="form" action="{{ route('freelancer.language.update') }}" method="POST" enctype="multipart/form-data" files="true">
 						{{ csrf_field() }}
 						@if(session('successl'))

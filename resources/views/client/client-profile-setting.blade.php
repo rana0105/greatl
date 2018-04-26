@@ -20,7 +20,7 @@
 							<a href="#membership-bid" >Membership & Bid</a>
 						</li>
 						<li>
-							<a href="#membership-bid" >Languages</a>
+							<a href="#languages" >Languages</a>
 						</li>
 					</ul>
 				</div>
@@ -152,7 +152,7 @@
 							</div>
 						</form>
 					</div>
-					<div id="profile" class="box-white-bg padding-to  login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
+					<div id="password" class="box-white-bg padding-to  login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
 						<div class="login-freelancer-profile-single-item-headding overflow-fix">
 							<h2>Change Password</h2>
 							@if(session('successpas'))
@@ -220,7 +220,7 @@
 							</div>
 						</form>
 					</div>
-					<div id="profile" class="box-white-bg padding-to  login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
+					<div id="languages" class="box-white-bg padding-to  login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
 					<form class="login-freelancer-profile-single-item-payment overflow-fix" role="form" action="{{ route('client.language.update') }}" method="POST" enctype="multipart/form-data" files="true">
 						{{ csrf_field() }}
 						@if(session('successl'))

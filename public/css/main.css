@@ -216,3 +216,37 @@ footer {
   textarea.form-control {
     min-height: 100px;
   }
+
+  span.dot-green {
+    position: relative;
+    margin-left: 5px;
+}
+
+span.dot-green:after {
+    background: #0d9b49;
+    display: block;
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+    right: -10px;
+    top: 4px;
+}
+
+span.dot-red {
+    position: relative;
+    margin-left: 5px;
+}
+
+span.dot-red:after {
+    background: red;
+    display: block;
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+    right: -10px;
+    top: 4px;
+}
