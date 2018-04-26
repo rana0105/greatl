@@ -1,0 +1,49 @@
+/*!
+Theme Name: Lion Rental
+Theme URI: http://thecarvaultonline.com
+Author: Spark Bit Solution
+Author URI: http://sparkbit.club
+Version: 0.0.1
+Description: 
+Licensed Commercial 
+Copyright 2017-2017 Spark Bit Solution
+*/
+
+@charset "utf-8";
+
+// Import Bootstrap parts
+@import "../../vendor/bootstrap/scss/variables";
+@import "../../vendor/bootstrap/scss/mixins";
+
+// Import "include media"
+@import "../../vendor/include-media/dist/include-media";
+
+// Components
+@import "components/dashboard-navbar";
+@import "components/dashboard-container";
+@import "components/settings";
+@import "components/tenant-dashboard";
+
+// Helpers
+@import "helpers/variables";
+@import "helpers/mixins";
+@import "helpers/functions";
+@import "helpers/helpers";
+
+// Theme
+// @import "themes/dark";
+
+// Base
+@import "base/default";
+@import "base/typography";
+
+// Layout
+@import "layout/body";
+@import "layout/header";
+@import "layout/dashboard-aside";
+@import "layout/main";
+@import "layout/footer";
+@import "layout/sidebar";
+
+// Shame
+@import "shame";

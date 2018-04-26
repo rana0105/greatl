@@ -1,0 +1,67 @@
+
+<?php $__env->startSection('content'); ?>
+<!-- give-feedback  -->
+<section class="give-feedback-area overflow-fix content-bg">
+	<div class="container my-container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="give-feedback overflow-fix">
+					<div class="give-feedback-title overflow-fix">
+						<div class="page-highlight overflow-fix">
+							<h2>Give Feedback From Client</h2>
+						</div>
+					</div>
+					<div class="give-feedback-content overflow-fix box-white-bg padding-to">
+						<h2>Rate this work</h2>
+						<form class="row overflow-fix " action="<?php echo e(url('freelancer-rating')); ?>" method="POST">
+							<?php echo e(csrf_field()); ?>
+
+							<?php if(session('success')): ?>
+								<div class="alert alert-success">
+									<?php echo e(session('success')); ?>
+
+								</div>
+							<?php endif; ?>
+						<input type="hidden" name="job_post_id" value="<?php echo e($jreview->id); ?>">
+						<input type="hidden" name="jobapply_id" value="<?php echo e($jreview->id); ?>">
+						<input type="hidden" name="user_id" value="<?php echo e($jreview->user_id); ?>">
+						<input type="hidden" name="freelancer_id" value="<?php echo e($jreview->freelancer_id); ?>">
+						<div class="daynamic-rating overflow-fix">
+							<div class="stars overflow-fix">
+								<input type="radio" name="star" value="1" class="star-1" id="star-1">
+								<label class="star-1" for="star-1">1</label>
+								<input type="radio" name="star" value="2" class="star-2" id="star-2">
+								<label class="star-2" for="star-2">2</label>
+								<input type="radio" name="star" value="3" class="star-3" id="star-3">
+								<label class="star-3" for="star-3">3</label>
+								<input type="radio" name="star" value="4" class="star-4" id="star-4">
+								<label class="star-4" for="star-4">4</label>
+								<input type="radio" name="star" value="5" class="star-5" id="star-5">
+								<label class="star-5" for="star-5">5</label>
+								<span></span>
+							</div>
+						</div>
+						
+							<div class="col-lg-2 col-md-2 col-md-2 col-sm-2">
+								
+							</div>
+							<div class="col-lg-8 col-md-8 col-md-8 col-sm-8">
+								<div class="give-feedback-text overflow-fix">
+									<textarea name="description" placeholder="Write Something..."></textarea>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-md-2 col-sm-2 d-flex align-items-end padding-o">
+								<div class="give-feedback-button overflow-fix">
+									<button type="submit">submit</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End message-box -->
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

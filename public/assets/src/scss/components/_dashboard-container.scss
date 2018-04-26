@@ -1,0 +1,18 @@
+.summary-statement {
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+
+    .income,
+    .expense {
+        display: inline-block;
+        width: 250px;
+        height: 250px;
+        background-color: #777;
+
+        span {
+            display: block;
+        }
+    }
+}
+

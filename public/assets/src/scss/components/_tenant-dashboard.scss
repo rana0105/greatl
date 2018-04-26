@@ -1,0 +1,55 @@
+.profile-header {
+	background-color: #ccc;
+
+	.profile-img {
+		border-radius: 50%;
+		width: 90px;
+		height: 90px;
+		border: 1px solid #fff;
+	}
+
+	h3 {
+		font-size: 1.2rem;
+	}
+
+	address {
+
+	}
+
+	ul {
+		padding-left: 0;
+		list-style: none;
+
+		li {
+			display: inline-block;
+			padding-right: 20px;
+		}
+	}
+}
+
+.live-item-1,
+.live-item-2,
+.live-item-3 {
+	display: inline-block;
+	margin-right: 50px;
+}
+
+#shop-list {
+	.btn {
+		height: 40px;
+		margin-top: 2rem;
+		margin-right: 0.2rem;
+	}
+}
+
+#profile-details {
+	.customer-profile {
+		background-color: #333;
+		text-align: center;
+		padding: 50px 0;
+
+		p {
+			color: #fff;
+		}
+	}
+}

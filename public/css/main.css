@@ -1,0 +1,218 @@
+/* Space out content a bit */
+.btn-main-inv{
+    color: #fff;
+    font-size: 15px;
+    background-color: #12a708;
+    border-color: #16ef07;
+}
+a.a-font{
+  font-weight: 500;
+  font-size: 12px;
+}
+/*start panel section css */
+.panel {
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: 0 0 23.75px 1.55px rgba(101,166,207,0.15 );
+    border-radius: 3px;
+}
+
+.panel-primary>.panel-heading {
+    background-image: linear-gradient(-90deg, #00AEFF 0%, #3369E6 100%);
+}
+
+.panel-title {
+    text-align: center;
+}
+
+.panel-body .btn:not(.btn-block) 
+{ 
+  width:170px;
+  margin-left:5px; 
+}
+
+.p-top{
+  margin-top: 2%;
+}
+
+/*end panel section css */
+div#t-cent {
+    text-align: center;
+    margin-left: 41%;
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-toggler {
+    color: #fff;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+}
+
+.form-control {
+  font-size: 1.5rem;
+}
+
+h4, h5, h6, pre, table.table tr th {
+    font-size: 2rem;
+}
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Custom page header */
+.header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page footer */
+.main-footer {
+  margin-top: 100px;
+  padding-top: 10px;
+  background: #fc813a;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+footer {
+    position: fixed;
+    margin-top: 100px;
+    height: 50px;
+    bottom: 0;
+    width: 100%;
+}
+
+.fo-fixed{
+  margin-bottom: 50px;
+}
+
+/* Customize container */
+/*@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}*/
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+.role_r {
+  margin-bottom: 20px; 
+}
+
+
+.submit-button {
+   float: right;
+}
+ 
+.text-input-container {
+   width: 100%;
+   overflow: hidden;
+}
+ 
+.text-input {
+   width: 100%;
+}
+
+.btn-ac {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.9;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+     /*padding: .5rem 1rem;*/ 
+    /*font-size: 1rem;*/
+    border-radius: .25rem;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+
+  .paddin-bottom {
+      margin-bottom: 3%;
+  }
+
+  #sidebar {    padding-right: 0;
+    }
+
+  .form-control {    
+  font-size: 1.5rem !important;
+  }
+
+  /*.btn-primary {    
+  padding: 1rem 2rem !important;
+  font-size: 1.5rem !important;
+  }*/
+
+  select.form-control:not([size]):not([multiple]) {    
+  height: calc(3.25rem + 2px) !important;
+  }
+
+  textarea.form-control {
+    min-height: 100px;
+  }

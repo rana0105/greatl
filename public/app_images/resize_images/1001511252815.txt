@@ -1,0 +1,288 @@
+16/11/2017
+-> work greatneighbor  
+
+$aplist = JobApply::join('users', 'users.id', '=', 'job_applies.freelancer_id')
+                  ->where('users', 'users.id', '=', 'client_freelancers.user_idu')
+                  ->where('job_applies.job_post_id', $id)
+                  ->get();
+                  dd($aplist);
+
+$aplist = JobApply::join('users', 'users.id', '=', 'job_applies.freelancer_id')
+                  ->where('job_applies.job_post_id', $id)
+                  ->get();
+
+public function getFreelancersingleprofile()
+    {
+
+          return view('frontend.freeprofile');
+    }
+
+    public function getProjectview()
+    {
+
+          return view('project.projectveiw');
+    }
+
+    public function getProjectpost()
+    {
+
+          return view('project.projectpost');
+    }
+
+    public function getProjectdetails()
+    {
+
+          return view('project.projectdetails');
+    }
+
+    public function getLoginfree()
+    {
+
+          return view('freelance.login_freelancer_home_page');
+    }
+
+01970625729
+
+
+CREATE VIEW products_view AS SELECT id,name,code,quantity,sale_price FROM products WHERE procategory_id IS NOT NULL;
+
+SELECT * FROM `products_view`
+https://github.com/LikeAshraful/laravel-blog
+
+$news = $request->input('news');
+$news = implode(',', $news);
+
+$input = $request->except('news');
+//Assign the "mutated" news value to $input
+$input['news'] = $news;
+
+General_news::create($input);
+return redirect()->back();
+
+
+
+
+//map
+	var map = new google.maps.Map(document.getElementById('map-canvas'),{
+		center:{
+			lat:23.780,
+			lng:90.2792
+		},
+		zoom: 10
+	});
+
+	var marker = new google.maps.Marker({
+		position:{
+			lat:23.780,
+			lng:90.2792
+		},
+		map: map,
+		draggable: true
+	});
+
+	// var searchBox = new google.maps.places.SearchBox(document.getElementById('mapsearch'));
+
+	// google.maps.event.addListener(searchBox, 'places_changed', funciton(){
+
+	// 	var places = searchBox.getPlaces();
+	// 	var bounds = new google.maps.LatLngBounds();
+	// 	var i, place;
+		
+	// 	for(i=0; place=places[i]; i++){
+	// 	bounds.extend(place.geometry.location);
+	// 	marker.setPosition(place.geometry.location);
+	// 	}
+	// 	map.fitBounds(bounds);
+	// 	map.setZoom(15);
+	// });
+
+	// Create the search box and link it to the UI element.
+        var input = document.getElementById('mapsearch');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+
+        var markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            if (!place.geometry) {
+              console.log("Returned place contains no geometry");
+              return;
+            }
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              icon: icon,
+              title: place.name,
+              position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          map.fitBounds(bounds);
+        });
+
+//map
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1ecjuZ8VRuNPpVQLKV5H435ZUdspMLx8&libraries=places"></script>
+
+// if($request->ajax()){
+        //     $output = '';
+        //     if($sid == 1){
+        //         $sjobpost = JobPost::orderBy('id', 'desc')->paginate(5);
+        //     }else{
+        //         $sfree = ClientFreelancer::where('role_idu', 3)->get();
+        //     }
+
+        //     if($sjobpost){
+        //       if(sizeof($sjobpost)>0){
+
+        //         foreach ($sjobpost as $sjob) {
+        //             $output .='
+        //             <div class="row padding-o">
+        //                 <div class="col-lg-2">  
+        //                     <div class="single-profile-item-img overflow-fix">
+        //                         <a href=""><img src="'. asset('app_images/resize_images') . '/' . $sjob->p_image . '"/></a>
+        //                     </div>
+        //                 </div>
+        //                 <div class="col-lg-8">  
+        //                     <div class="single-profile-single-item overflow-fix">
+        //                         <div class="single-profile-heading overflow-fix d-flex justify-content-start">
+        //                             <a href="' . url('freelancer-profile', $sjob->id) . '"><h2>' . $sjob->name . '</h2></a>
+        //                             <ul>
+        //                                 <li><a href="">' . $sjob->hourly_rate . '$/hr</a></li>
+        //                                 <li><a href="">' . $sjob->experience . '</a></li>
+        //                                 <li>
+        //                                     <div class="profile-simple-rating d-flex">
+        //                                         <i class="fa fa-star" aria-hidden="true"></i>
+        //                                         <i class="fa fa-star" aria-hidden="true"></i>
+        //                                         <i class="fa fa-star" aria-hidden="true"></i>
+        //                                         <i class="fa fa-star" aria-hidden="true"></i>
+        //                                         <i class="fa fa-star rating-neg" aria-hidden="true"></i>
+        //                                     </div>
+        //                                 </li>
+        //                             </ul>
+        //                         </div>
+        //                         <div class="single-profile-subject overflow-fix">
+        //                             <h6>' . $sjob->designation . '</h6>
+        //                         </div>
+        //                         <div class="single-profile-datalist overflow-fix">
+        //                         ' . str_limit(strip_tags($sjob->overview), 300) .
+        //                              (strlen(strip_tags($sjob->overview)) > 300)
+        //                               . '... <a href="' . url('freelancer-profile', $sjob->id) . '" class="">Read More</a>
+                                    
+        //                         </div>
+        //                         <div class="single-profile-skill overflow-fix">
+        //                             <p>Skills:</p>
+        //                             <ul>
+        //                                 <li><i>' . $sjob->skill . ',</i></li>
+        //                             </ul>
+        //                         </div>
+        //                     </div>
+        //                 </div>
+        //                 <div class="col-lg-2 d-flex align-items-center">
+        //                     <div class="see-dtiles-button overflow-fix">
+        //                         <a href="' . url('freelancer-profile', $sjob->id) . '" class="grren-btn">View Profile</a>
+        //                     </div>
+        //                 </div>
+        //         </div>';
+        //         }
+        //         }else{
+        //           $output .='No data matched with database !';
+        //       }
+        //     }elseif($sfree){
+        //       if(sizeof($sfree)>0){
+
+        //         foreach ($sfree as $sf) {
+        //             $output .='
+        //             <div class="row padding-o">
+        //                 <div class="col-lg-2">  
+        //                     <div class="single-profile-item-img overflow-fix">
+        //                         <a href=""><img src="'. asset('app_images/resize_images') . '/' . $sf->p_image . '"/></a>
+        //                     </div>
+        //                 </div>
+        //                 <div class="col-lg-8">  
+        //                     <div class="single-profile-single-item overflow-fix">
+        //                         <div class="single-profile-heading overflow-fix d-flex justify-content-start">
+        //                             <a href="' . url('freelancer-profile', $sf->id) . '"><h2>' . $sf->name . '</h2></a>
+        //                             <ul>
+        //                                 <li><a href="">' . $sf->hourly_rate . '$/hr</a></li>
+        //                                 <li><a href="">' . $sf->experience . '</a></li>
+        //                                 <li>
+        //                                     <div class="profile-simple-rating d-flex">
+        //                                         <i class="fa fa-star" aria-hidden="true"></i>
+        //                                         <i class="fa fa-star" aria-hidden="true"></i>
+        //                                         <i class="fa fa-star" aria-hidden="true"></i>
+        //                                         <i class="fa fa-star" aria-hidden="true"></i>
+        //                                         <i class="fa fa-star rating-neg" aria-hidden="true"></i>
+        //                                     </div>
+        //                                 </li>
+        //                             </ul>
+        //                         </div>
+        //                         <div class="single-profile-subject overflow-fix">
+        //                             <h6>' . $sf->designation . '</h6>
+        //                         </div>
+        //                         <div class="single-profile-datalist overflow-fix">
+        //                         ' . str_limit(strip_tags($sf->overview), 300) .
+        //                              (strlen(strip_tags($sf->overview)) > 300)
+        //                               . '... <a href="' . url('freelancer-profile', $sf->id) . '" class="">Read More</a>
+                                    
+        //                         </div>
+        //                         <div class="single-profile-skill overflow-fix">
+        //                             <p>Skills:</p>
+        //                             <ul>
+        //                                 <li><i>' . $sf->skill . ',</i></li>
+        //                             </ul>
+        //                         </div>
+        //                     </div>
+        //                 </div>
+        //                 <div class="col-lg-2 d-flex align-items-center">
+        //                     <div class="see-dtiles-button overflow-fix">
+        //                         <a href="' . url('freelancer-profile', $sf->id) . '" class="grren-btn">View Profile</a>
+        //                     </div>
+        //                 </div>
+        //         </div>';
+        //         }
+        //       }else{
+        //           $output .='No data matched with database !';
+        //       }
+        //     }else{
+        //       $output .='No data matched with database !';
+        //     }
+        //     return Response($output);
+        // }
