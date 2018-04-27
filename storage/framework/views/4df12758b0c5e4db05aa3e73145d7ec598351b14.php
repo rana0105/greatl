@@ -47,22 +47,12 @@
 						</li>
 					<?php endif; ?>
 					<?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('view_work')): ?>
-						<li class="active"><a href="<?php echo e(route('projec')); ?>">Projects</a></li>	
-						<li>
-							<div class="dropdown">
-							  <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								My Work
-							  </a>
-							  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="<?php echo e(url('proposal-project', Auth::user()->id)); ?>">Proposal Work
+						<li class="active"><a href="<?php echo e(route('projec')); ?>">Projects</a></li>
+						<li class=""><a href="<?php echo e(url('proposal-project', Auth::user()->id)); ?>">
+									My Work
 								<input type="hidden" name="postid" value="<?php echo e(App\Model\JobApply::all('job_post_id')); ?>">
-								</a>
-								<a class="dropdown-item" href="#">Current Work</a>
-								<a class="dropdown-item" href="#">Past Work</a>
-								<a class="dropdown-item" href="#">All Contracts</a>
-							  </div>
-							</div>
-						</li>
+								</a></li>	
+						
 					<?php endif; ?>
 						<li>
 							<div class="dropdown">
@@ -98,10 +88,14 @@
 						</li>
 
 					</ul>
-					<?php $profileImage = Auth::user()->profilePic?Auth::user()->profilePic->p_image:'fakeprofile.png' ?>
+					<?php $profileImage = Auth::user()->profilePic ? Auth::user()->profilePic->p_image : 'fakeprofile.png' ?>
 					<div class="profile-menu-ara d-flex">
 						<div class="profile-menu-img align-self-center">
+							<?php if($profileImage == null): ?>
+							<a href="#"><img src="<?php echo e(asset('app_images/resize_images/fakeprofile.png')); ?>" class="rounded-circle"/></a>
+							<?php else: ?>
 							<a href="#"><img src="<?php echo e(asset('app_images/resize_images'.'/'.$profileImage)); ?>" class="rounded-circle"/></a>
+							<?php endif; ?>
 						</div>&nbsp;&nbsp;
 						<div class="profile-menu-icon align-self-center">
 							<div class="dropdown show">
@@ -116,8 +110,7 @@
 									<a class="dropdown-item" href="<?php echo e(route('freelancer.profile.show')); ?>">Profile Setting</a>
 									<a class="dropdown-item" href="<?php echo e(url('freelancer-profile', Auth::user()->id)); ?>"><?php echo e(Auth::user()->name); ?></a>
 								<?php else: ?>
-									<?php echo e(url()); ?>
-
+								<p>Admin</p>
 								<?php endif; ?>
 									<a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
 	                                    onclick="event.preventDefault();

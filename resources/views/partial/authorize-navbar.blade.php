@@ -46,22 +46,24 @@
 						</li>
 					@endcan
 					@can('view_work')
-						<li class="active"><a href="{{ route('projec') }}">Projects</a></li>	
-						<li>
+						<li class="active"><a href="{{ route('projec') }}">Projects</a></li>
+						<li class=""><a href="{{ url('proposal-project', Auth::user()->id) }}">
+									My Work
+								<input type="hidden" name="postid" value="{{ App\Model\JobApply::all('job_post_id') }}">
+								</a></li>	
+						{{-- <li>
 							<div class="dropdown">
 							  <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								My Work
+									My Work
 							  </a>
 							  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="{{ url('proposal-project', Auth::user()->id) }}">Proposal Work
+								<a class="dropdown-item" href="{{ url('proposal-project', Auth::user()->id) }}">
+									Work History
 								<input type="hidden" name="postid" value="{{ App\Model\JobApply::all('job_post_id') }}">
 								</a>
-								<a class="dropdown-item" href="#">Current Work</a>
-								<a class="dropdown-item" href="#">Past Work</a>
-								<a class="dropdown-item" href="#">All Contracts</a>
 							  </div>
 							</div>
-						</li>
+						</li> --}}
 					@endcan
 						<li>
 							<div class="dropdown">
@@ -97,10 +99,14 @@
 						</li>
 
 					</ul>
-					<?php $profileImage = Auth::user()->profilePic?Auth::user()->profilePic->p_image:'fakeprofile.png' ?>
+					<?php $profileImage = Auth::user()->profilePic ? Auth::user()->profilePic->p_image : 'fakeprofile.png' ?>
 					<div class="profile-menu-ara d-flex">
 						<div class="profile-menu-img align-self-center">
+							@if($profileImage == null)
+							<a href="#"><img src="{{ asset('app_images/resize_images/fakeprofile.png')}}" class="rounded-circle"/></a>
+							@else
 							<a href="#"><img src="{{ asset('app_images/resize_images'.'/'.$profileImage)}}" class="rounded-circle"/></a>
+							@endif
 						</div>&nbsp;&nbsp;
 						<div class="profile-menu-icon align-self-center">
 							<div class="dropdown show">
@@ -115,7 +121,7 @@
 									<a class="dropdown-item" href="{{ route('freelancer.profile.show') }}">Profile Setting</a>
 									<a class="dropdown-item" href="{{ url('freelancer-profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
 								@else
-									{{ url() }}
+								<p>Admin</p>
 								@endif
 									<a class="dropdown-item" href="{{ route('logout') }}"
 	                                    onclick="event.preventDefault();

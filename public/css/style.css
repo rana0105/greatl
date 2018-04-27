@@ -88,9 +88,13 @@ thead tr th, tbody tr td, tbody tr th {
     font-size: 10px;
     font-weight: 600;
 }
+p.all-job-style>a {
+    color: #1e9b49;
+}
 input:focus {
     border: transparent;
 }
+:focus {outline:0;}
 .table-bordered thead th, .table-bordered thead td {
 	border-bottom-width: 1px;
 }
@@ -450,9 +454,6 @@ input[type=number]
     max-width: 100% !important;
     margin-top: 5px;
 }
-input:focus {
-    border: 1px solid #e1e1e1 !important;
-}
 .bootstrap-tagsinput .tag {
     color: #fff !important;
     font-size: 10px;
@@ -785,6 +786,7 @@ input:focus {
     margin-left: -35px;
     margin-top: -1px;
     opacity: 0;
+    width: 250px !important;
 }
 
 .search-field-opacity .select2-container--open {
@@ -1284,7 +1286,7 @@ input:focus {
     color: #fff;
     font-size: 18px;
     padding-bottom: 45px;
-    padding-top: 100px;
+    padding-top: 50px;
 }
 
 .project-search-area:before {
@@ -1296,6 +1298,10 @@ input:focus {
     position: absolute;
     top: 0;
     opacity: .7;
+}
+
+#headerselect {
+  opacity: 0;
 }
 .project-filter-area .select2 {
     width: 165px !important;
@@ -1320,7 +1326,7 @@ input:focus {
 }
 
 .search-single-field .select2 {
-    width: 120px !important;
+    width: 150px !important;
 }
 .search-single-field .select2-container--default .select2-selection--single {
     background-color: #F8F9FD;
@@ -2822,7 +2828,7 @@ ul.required-skills-list li p span {
     border: 1px solid #e1e1e1;
     border-radius: 2px;
     padding: 0px 10px;
-    font-size: 11px;
+    font-size: 13px;
     margin-bottom: 10px;
     max-width: 280px;
 }
@@ -3030,7 +3036,10 @@ input.input-filed-none {
 
 
 
-
+.login-freelancer-profile-setting-sidebar-area.overflow-fix {
+ max-width: 245px; 
+ top: 35px !important;
+}
 
 
 @media (min-width: 1200px) {
@@ -3041,15 +3050,9 @@ input.input-filed-none {
 	.main-header-area .my-container {
 		max-width: 1200px;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	.project-search-area .my-container {
+      max-width: 1200px;
+  }
 	
 }
 

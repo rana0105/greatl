@@ -97,7 +97,7 @@
 					<h2>Additional Information</h2>
 					<h6>Cover Letter</h6>
 					<textarea name="coverletter" placeholder="Cover Letter ......" required=""></textarea>
-					<h6>Propose a list of key tasks and deliverables as a series of milestones</h6>
+					{{-- <h6>Propose a list of key tasks and deliverables as a series of milestones</h6>
 					<div class="milestones-area overflow-fix d-flex justify-content-center">
 						<div class="milestones-area-usd-input d-flex overflow-fix">
 							<span>USd</span>
@@ -109,7 +109,7 @@
 							<input type="text" name="mile_des" placeholder="Description"/>
 						</div>
 					</div>
-					<p class="for-milstone-me overflow-fix">Your Milestones must equal your bid amount of S 155 USD and you must describe each task in 100 characters or less</p>
+					<p class="for-milstone-me overflow-fix">Your Milestones must equal your bid amount of S 155 USD and you must describe each task in 100 characters or less</p> --}}
 					<h2>Attachment (Optional)</h2>
 					<div class="project-post-fileupload-btn overflow-fix">
 						<input id="upload-input" type="file" name="a_file[]" class="upload" multiple="multiple" name="browsefile"/>

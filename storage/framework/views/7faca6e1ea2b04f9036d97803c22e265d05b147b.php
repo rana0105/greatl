@@ -17,7 +17,7 @@
 							<a href="#profile-setting" >Profile Setting</a>
 						</li>
 						<li>
-							<a href="#password" >My Profile</a>
+							<a href="#myProfile" >My Profile</a>
 						</li>
 						<li>
 							<a href="#password" >Password</a>
@@ -26,7 +26,7 @@
 							<a href="#membership-bid" >Membership & Bid</a>
 						</li>
 						<li>
-							<a href="#membership-bid" >Languages</a>
+							<a href="#languages" >Languages</a>
 						</li>
 					</ul>
 				</div>
@@ -71,7 +71,7 @@
 							<div class="login-freelancer-profile-single-item-input overflow-fix">
 								<p>Photo</p>
 								<div class="box overflow-fix d-flex align-items-end">
-									<div class="profile-img-upload-area js--image-preview overflow-fix" style="background-image: url(<?php echo e(url('app_images/resize_images/')); ?>/<?php echo e(isset($profile->p_image) ? $profile->p_image : 'Default'); ?>);">
+									<div class="profile-img-upload-area js--image-preview overflow-fix" style="background-image: url(<?php echo e(asset('app_images/resize_images/')); ?>/<?php echo e(isset($profile->p_image) ? $profile->p_image : 'Default'); ?>);">
 									<img src="">
 									</div>
 									<div class="profile-img-upload-button overflow-fix">
@@ -244,7 +244,7 @@
 							</div>
 						</form>
 					</div>
-					<div id="profiles" class="box-white-bg padding-to login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
+					<div id="myProfile" class="box-white-bg padding-to login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
 						<div class="login-freelancer-profile-single-item-headding overflow-fix">
 							<h2>My Profile</h2>
 							<?php if(session('successm')): ?>
@@ -361,7 +361,7 @@
 							</div>
 						</form>
 					</div>
-					<div id="profile" class="box-white-bg padding-to  login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
+					<div id="languages" class="box-white-bg padding-to  login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
 					<form class="login-freelancer-profile-single-item-payment overflow-fix" role="form" action="<?php echo e(route('freelancer.language.update')); ?>" method="POST" enctype="multipart/form-data" files="true">
 						<?php echo e(csrf_field()); ?>
 
@@ -465,8 +465,8 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('script'); ?>
-<script type="text/javascript">
-
+<script src="http://stickyjs.com/jquery.sticky.js"></script>
+<script>
 $( document ).ready(function() {
     $('input[type="checkbox"]').on('change', function() {
 	   $('input[type="checkbox"]').not(this).prop('checked', false);
@@ -498,7 +498,7 @@ $( document ).ready(function() {
 	 		  	$('.checkl').prop('checked', false);
         }
   	});
-
+$(".login-freelancer-profile-setting-sidebar-area").sticky({topSpacing:0});
 });
 	
 </script>

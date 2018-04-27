@@ -44,9 +44,7 @@
 						<div class="project-details-attachment overflow-fix">
 							<ul>
 							<?php $__currentLoopData = $cfile; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cf): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-							<?php  $mpdf = asset('/app_images/resize_images/'. $cf->c_file)  ?>
-								
-								<a href="javascript:void(0)" onclick="printJS('<?php echo e($mpdf); ?>')" target="blank"><i class="fa fa-paperclip" aria-hidden="true"></i><?php echo e($cf->c_file); ?> ﬁle here</a></li>
+								<li><a href="<?php echo e(asset('app_images/resize_images')); ?>/<?php echo e($cf->c_file); ?>" target="blank"> <i class="fa fa-paperclip" aria-hidden="true"></i><?php echo e($cf->c_file); ?> ﬁle here</a></li>
 							<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 							</ul>
 						</div>

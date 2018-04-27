@@ -14,6 +14,8 @@
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
     
+    <link rel="shortcut icon" type="image/png" href="<?php echo e(asset('favicon.png')); ?>"/>
+    <link rel="shortcut icon" type="image/png" href="<?php echo e(asset('favicon.png')); ?>"/>
     <title>Great Neighbor</title>
 
     <?php echo $__env->make('partial.style', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

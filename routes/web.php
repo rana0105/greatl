@@ -32,22 +32,21 @@ Route:: get('user/activation/{token}', 'Auth\RegisterController@userActivation')
 // Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 
 Route::group( ['middleware' => ['auth']], function() {
+    Route::group(['middleware' => 'admincheck'], function() {
+        Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
+        // Start Backend Controller
+        Route::resource('users', 'UserController');
+        Route::resource('roles', 'RoleController');
+        Route::resource('permissions', 'Backend\PermissionController');
+        Route::resource('posts', 'PostController');
 
-    Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
-    // Start Backend Controller
-    
-    Route::resource('users', 'UserController');
-    Route::resource('roles', 'RoleController');
-    Route::resource('permissions', 'Backend\PermissionController');
-    Route::resource('posts', 'PostController');
-
-    Route::resource('project-category', 'Backend\ProjectCategoryController');
-    Route::resource('job-level', 'Backend\JobLevelController');
-    Route::resource('rate-type', 'Backend\ProjectTypeController');
-    Route::resource('skill-category', 'Backend\SkillCategoryController');
-    Route::resource('gsetting', 'Backend\GenSettingController');
-    Route::resource('servicefee', 'Backend\ServiceFeeController');
-    
+        Route::resource('project-category', 'Backend\ProjectCategoryController');
+        Route::resource('job-level', 'Backend\JobLevelController');
+        Route::resource('rate-type', 'Backend\ProjectTypeController');
+        Route::resource('skill-category', 'Backend\SkillCategoryController');
+        Route::resource('gsetting', 'Backend\GenSettingController');
+        Route::resource('servicefee', 'Backend\ServiceFeeController');
+    });
     Route::get('freelancer-payment','Backend\PaymentController@freelancerPaymentViewAdmin')->name('freelancer.payment.admin.show');
     Route::get('freelancer-withdraw','Backend\PaymentController@freelancerWithdrawViewAdmin')->name('freelancer.withdraw.admin.show');
     Route::post('freelancer/withdraw-cancel/{id}','Backend\PaymentController@faildWithdrawAmountUpdate')->name('faild.amount');

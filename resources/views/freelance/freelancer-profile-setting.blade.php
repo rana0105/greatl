@@ -69,7 +69,7 @@
 							<div class="login-freelancer-profile-single-item-input overflow-fix">
 								<p>Photo</p>
 								<div class="box overflow-fix d-flex align-items-end">
-									<div class="profile-img-upload-area js--image-preview overflow-fix" style="background-image: url({{ url('app_images/resize_images/')}}/{{ $profile->p_image or 'Default' }});">
+									<div class="profile-img-upload-area js--image-preview overflow-fix" style="background-image: url({{ asset('app_images/resize_images/')}}/{{ $profile->p_image or 'Default' }});">
 									<img src="">
 									</div>
 									<div class="profile-img-upload-button overflow-fix">
@@ -445,8 +445,8 @@
 @endsection
 
 @section('script')
-<script type="text/javascript">
-
+<script src="http://stickyjs.com/jquery.sticky.js"></script>
+<script>
 $( document ).ready(function() {
     $('input[type="checkbox"]').on('change', function() {
 	   $('input[type="checkbox"]').not(this).prop('checked', false);
@@ -478,7 +478,7 @@ $( document ).ready(function() {
 	 		  	$('.checkl').prop('checked', false);
         }
   	});
-
+$(".login-freelancer-profile-setting-sidebar-area").sticky({topSpacing:0});
 });
 	
 </script>

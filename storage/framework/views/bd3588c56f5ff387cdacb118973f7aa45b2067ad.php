@@ -228,8 +228,8 @@ body{
         <div class='c'>
             <div class='_404'>403</div>
             <hr>
-            <div class='_1'>THE PAGE</div>
-            <div class='_2'>Forbidden </div>
+            <div class='_1'>THE ACCESS</div>
+            <div class='_1'>DENIED </div>
             <a class='btn' href="<?php echo e(url('/')); ?>">BACK TO HOME</a>
         </div>
 	</body>

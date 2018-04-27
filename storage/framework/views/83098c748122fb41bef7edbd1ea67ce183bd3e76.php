@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+    <link rel="shortcut icon" type="image/png" href="<?php echo e(asset('favicon.png')); ?>"/>
+    <link rel="shortcut icon" type="image/png" href="<?php echo e(asset('favicon.png')); ?>"/>
     <title>Great Neighbor</title>
      <?php echo $__env->make('partial.dashstyle', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -16,7 +18,6 @@
                 <?php echo $__env->make('flash::message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         </div>
     <?php echo $__env->yieldContent('content'); ?>
-       
    
     <!-- Scripts -->
     <?php echo $__env->make('partial.dashjavascript', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

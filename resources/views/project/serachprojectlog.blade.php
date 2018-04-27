@@ -39,7 +39,7 @@
 										<h6> {{ $pro->ratetype->project_type }} - {{ $pro->joblevel->job_level }} Level ($$) - Est. Time: {{ $pro->p_less }} - <span>Posted {{ CarbonInterval::days($days)->hours($hours)->minutes($minutes)->forHumans() }} ago<span></h6>
 									</div>
 									<div class="single-porject-datalist overflow-fix">
-										 {{ substr($pro->p_description, 0, 300) }} {{ strlen($pro->p_description) >300 ? "..." :""}}<a href="{{ url('project-details', $pro->id) }}">more</a>
+										 {!! substr(strip_tags($pro->p_description), 0, 300) !!} {!! strlen(strip_tags($pro->p_description)) >300 ? "..." :"" !!}<a href="{{ url('project-details', $pro->id) }}">more</a>
 									</div>
 									<div class="single-porject-skill overflow-fix">
 										<p>Skills:</p>

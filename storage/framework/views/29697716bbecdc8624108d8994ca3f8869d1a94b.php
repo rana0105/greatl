@@ -48,10 +48,7 @@
 									  <?php $__currentLoopData = $apply; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ap): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 											<tr>
 											  <td><a href="<?php echo e(url('project-details', $ap->job_post_id )); ?>"><?php echo e($ap->postjob->p_title); ?></a></td>
-											  <td>
-											  <?php echo e($ap->bid); ?>
-
-											  </td>
+											  <td><?php echo e($ap->bid); ?></td>
 											  <th>$<?php echo e($ap->bidamount); ?> (USD)</th>
 											  <th>$<?php echo e($ap->avg); ?> (USD)</th>
 											  <th><?php echo e(date('d M, Y', strtotime($ap->postjob->p_edate))); ?></th>
@@ -90,7 +87,6 @@
 										  <th>Project Name</th>
 										  <th>Employer</th>
 										  <th>Budget</th>
-										  <th>Milestones</th>
 										  <th>Deadline</th>
 										  <th>Action</th>
 										</tr>
@@ -99,10 +95,9 @@
 									  	<?php $__currentLoopData = $apply; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ap): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 											<tr>
 											  <td><a href="<?php echo e(url('project-details', $ap->job_post_id )); ?>"><?php echo e($ap->postjob->p_title); ?></a></td>
-											  <td>2</td>
-											  <th>$400 (USD)</th>
-											  <th></th>
-											  <th>05-Oct-17</th>
+											  <td><?php echo e($ap->bid); ?></td>
+											  <th>$<?php echo e($ap->bidamount); ?> (USD)</th>
+											  <th><?php echo e(date('d M, Y', strtotime($ap->postjob->p_edate))); ?></th>
 											  <th>
 												<div class="dropdown show">
 											  		<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -141,18 +136,15 @@
 										  <th>Budget</th>
 										  <th>Duration</th>
 										  <th>Feedback</th>
-										  <th>Action</th>
 										</tr>
 									  </thead>
 									  <tbody>
+									  	<?php $__currentLoopData = $apply; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ap): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 											<tr>
-											  <td><a href="3.3-Project-Details.php">UX Design and Front end development</a></td>
-											  <td>2</td>
-											  <th>$400 (USD)</th>
-											  <th class="text-center">
-												25-Sep-17<br/>-<br/>05-Oct-17
-
-											  </th>
+											  <td><a href="<?php echo e(url('project-details', $ap->job_post_id )); ?>"><?php echo e($ap->postjob->p_title); ?></a></td>
+											  <td><?php echo e($ap->bid); ?></td>
+											  <th>$<?php echo e($ap->bidamount); ?> (USD)</th>
+											  <th><?php echo e(date('d M, Y', strtotime($ap->postjob->p_sdate))); ?> <br/>to <?php echo e(date('d M, Y', strtotime($ap->postjob->p_edate))); ?></th>
 											  <th>
 												<ul class="d-flex rating-poposal">
 													<li>
@@ -168,22 +160,19 @@
 												</ul>
 											  
 											  </th>
-											  <th>
-												  <select  class="project-filter-select">
-														<option >Select</option>
-														<option >Amount Refund</option>
-														<option >Send Review</option>
-														<option >Send Message</option>
-													</select>
-											  </th>
 											</tr>
+											<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 										</tbody>
 									</table>
 								</div>
 							</div>
 							<div class="tab-pane fade" id="balance-contracts" role="tabpanel">
 								<div class="balance-overview-available overflow-fix">
-									<p>Ask Safiq vai</p>
+									<?php $__currentLoopData = $apply; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ap): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+									<p class="all-job-style">
+										<a href="<?php echo e(url('project-details', $ap->job_post_id )); ?>"><?php echo e($ap->postjob->p_title); ?></a>
+									</p>
+									<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 								</div>
 							</div>
 							

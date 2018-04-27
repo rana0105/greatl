@@ -2,7 +2,7 @@
 @section('content')
     <section class="home-banner-slider-area overflow-fix">
       <div class="banner-silder owl-carousel owl-theme">
-        <div class="banner-silder-single-item-area overflow-fix" style="background:url(images/slide1.jpg);">
+        <div class="banner-silder-single-item-area overflow-fix" style="background:url({{ asset('images/slide1.jpg') }});">
           <div class="container my-container">
             <div class="row">
               <div class="col-lg-6">
@@ -21,7 +21,7 @@
             </div>
           </div>
         </div>
-        <div class="banner-silder-single-item-area overflow-fix" style="background:url(images/slide1.jpg);">
+        <div class="banner-silder-single-item-area overflow-fix" style="background:url({{ asset('images/slide1.jpg') }});">
           <div class="container my-container">
             <div class="row">
               <div class="col-lg-6">
@@ -40,7 +40,7 @@
             </div>
           </div>
         </div>
-        <div class="banner-silder-single-item-area overflow-fix" style="background:url(images/slide1.jpg);">
+        <div class="banner-silder-single-item-area overflow-fix" style="background:url({{ asset('images/slide1.jpg') }});">
           <div class="container my-container">
             <div class="row">
               <div class="col-lg-6">
@@ -59,7 +59,7 @@
             </div>
           </div>
         </div>
-        <div class="banner-silder-single-item-area overflow-fix" style="background:url(images/slide1.jpg);">
+        <div class="banner-silder-single-item-area overflow-fix" style="background:url({{ asset('images/slide1.jpg') }});">
           <div class="container my-container">
             <div class="row">
               <div class="col-lg-6">
@@ -124,7 +124,7 @@
         </div>
       </div>
     </section>
-
+    @if(!Auth::check())
     <section class="started-in-minutes-area overflow-fix">
       <div class="container my-container">
         <div class="row">
@@ -165,6 +165,7 @@
         </div>
       </div>
     </section>
+    @endif
 
     <section class="mini-about-area overflow-fix">
       <div class="container my-container">
@@ -236,22 +237,22 @@
               <div class="also-featured owl-carousel owl-theme overflow-fix">
                 <div class="also-featured-single-item overflow-fix">
                   <div class="also-featured-single-img overflow-fix d-flex align-items-center"> 
-                    <img src="images/client1.png"/>
+                    <img src="{{ asset('images/client1.png') }}"/>
                   </div>
                 </div>
                 <div class="also-featured-single-item overflow-fix">
                   <div class="also-featured-single-img overflow-fix d-flex align-items-center"> 
-                    <img src="images/client2.png"/>
+                    <img src="{{ asset('images/client2.png') }}"/>
                   </div>
                 </div>
                 <div class="also-featured-single-item overflow-fix">
                   <div class="also-featured-single-img overflow-fix d-flex align-items-center"> 
-                    <img src="images/client3.png"/>
+                    <img src="{{ asset('images/client3.png') }}"/>
                   </div>
                 </div>
                 <div class="also-featured-single-item overflow-fix">
                   <div class="also-featured-single-img overflow-fix d-flex align-items-center"> 
-                    <img src="images/client4.png"/>
+                    <img src="{{ asset('images/client4.png') }}"/>
                   </div>
                 </div>
               </div>
