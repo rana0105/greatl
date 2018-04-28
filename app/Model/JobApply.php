@@ -34,6 +34,11 @@ class JobApply extends Model
         return $this->belongsTo('App\User','freelancer_id');
     }
 
+    public function jobpostClient() 
+    {
+        return $this->belongsTo('App\User','freelancer_id');
+    }
+
     public function freelencer() 
     {
         return $this->belongsTo('App\Model\ClientFreelancer','freelancer_id','user_idu');

@@ -38,15 +38,17 @@
 										</tr>
 									  </thead>
 									  <tbody>
+									  	<?php $__currentLoopData = $jobApply; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $job): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 											<tr>
-											  <td><a href="3.3-Project-Details.php">UX Design and Front end development</a></td>
-											  <td>Mark Samad</td>
-											  <th>$300 (USD)</th>
+											  <td><a href="#"><?php echo e($job->postjob->p_title); ?></a></td>
+											  <td><?php echo e($job->clientName->name); ?></td>
+											  <th>$<?php echo e($job->getpaid); ?> (USD)</th>
 											</tr>
 											<tr>
+										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 											  <td></td>
 											  <td class="tabil-total">Total</td>
-											  <th>$300 (USD)</th>
+											  <th>$<?php echo e($jobApply->sum('getpaid')); ?> (USD)</th>
 											</tr>
 									  </tbody>
 									</table>

@@ -38,15 +38,17 @@
 										</tr>
 									  </thead>
 									  <tbody>
+									  	@foreach($jobApply as $job)
 											<tr>
-											  <td><a href="3.3-Project-Details.php">UX Design and Front end development</a></td>
-											  <td>Mark Samad</td>
-											  <th>$300 (USD)</th>
+											  <td><a href="#">{{ $job->postjob->p_title }}</a></td>
+											  <td>{{ $job->clientName->name }}</td>
+											  <th>${{ $job->getpaid }} (USD)</th>
 											</tr>
 											<tr>
+										@endforeach
 											  <td></td>
 											  <td class="tabil-total">Total</td>
-											  <th>$300 (USD)</th>
+											  <th>${{ $jobApply->sum('getpaid') }} (USD)</th>
 											</tr>
 									  </tbody>
 									</table>

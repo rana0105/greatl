@@ -857,12 +857,19 @@ class FreelancerController extends Controller
 
     public function getBalanceoverview()
     {
-        $jobApply = JobApply::where('freelancer_id', Auth::user()->id)->get();
+        $jobApply = JobApply::where('freelancer_id', Auth::user()->id)->get()->load('postjob');
+        if(sizeof($jobApply)>0){
+            foreach ($jobApply as $key => $value) {
+               $clients= User::where('id', $value->postjob->user_id)->first();
+               $value['clientName']=$clients;
+            }
+        }
+        // dd($jobApply);
         $freeWithdraw = FreeWithdraw::where('user_id', Auth::user()->id)->sum('withdraw_amount');
         $withdrawPayment = FreePayment::where('freelancer_id', Auth::user()->id)->get();
         $pendingBalance = FreeWithdraw::where('user_id', Auth::user()->id)->where('status', 0)->get();
 
-        return view('freelance.balance-overview', compact('withdrawPayment', 'freeWithdraw', 'pendingBalance'));
+        return view('freelance.balance-overview', compact('withdrawPayment', 'freeWithdraw', 'pendingBalance', 'jobApply'));
     }
 
     
