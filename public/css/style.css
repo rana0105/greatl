@@ -1326,7 +1326,7 @@ input[type=number]
 }
 
 .search-single-field .select2 {
-    width: 150px !important;
+    width: 170px !important;
 }
 .search-single-field .select2-container--default .select2-selection--single {
     background-color: #F8F9FD;
@@ -3051,7 +3051,7 @@ input.input-filed-none {
 		max-width: 1200px;
 	}
 	.project-search-area .my-container {
-      max-width: 1200px;
+      max-width: 1000px;
   }
 	
 }

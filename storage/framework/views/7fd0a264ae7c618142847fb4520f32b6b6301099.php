@@ -43,7 +43,7 @@
             </div>
             <?php echo $__env->yieldContent('content'); ?>    
     </div>
-    
+    <?php echo $__env->make('partial.locations', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <?php echo $__env->make('partial.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <?php echo $__env->make('partial.javascript', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <?php echo $__env->yieldContent('script'); ?>

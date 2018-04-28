@@ -30,7 +30,8 @@ class FreelancerController extends Controller
     public function profileView(User $freelancer)
     {
         $freelencerProfile = $freelancer->load('freelencer','freelancerRating');
-         return view('freelance.free-single-profile', compact('freelencerProfile'));
+        $feedbacks = FreeRating::where('freelancer_idrf', $freelancer->id)->get()->unique('job_idrf')->load('freelancerFeedback', 'jobTitle');
+         return view('freelance.free-single-profile', compact('freelencerProfile', 'feedbacks'));
     }
 
     public function getFreelancerview()
@@ -856,8 +857,12 @@ class FreelancerController extends Controller
 
     public function getBalanceoverview()
     {
+        $jobApply = JobApply::where('freelancer_id', Auth::user()->id)->get();
+        $freeWithdraw = FreeWithdraw::where('user_id', Auth::user()->id)->sum('withdraw_amount');
+        $withdrawPayment = FreePayment::where('freelancer_id', Auth::user()->id)->get();
+        $pendingBalance = FreeWithdraw::where('user_id', Auth::user()->id)->where('status', 0)->get();
 
-        return view('freelance.balance-overview');
+        return view('freelance.balance-overview', compact('withdrawPayment', 'freeWithdraw', 'pendingBalance'));
     }
 
     

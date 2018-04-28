@@ -82,7 +82,7 @@
 							</div>
 							<div class="tab-pane fade" id="balance-available" role="tabpanel">
 								<div class="balance-overview-available overflow-fix">
-									<h6>$<span>200.00</span></h6>
+									<h6>$<span> <?php echo e(($withdrawPayment->sum('freelancer_payment')) - $freeWithdraw); ?> (USD)</span></h6>
 									<p>You earned it! Where should we deliver your balance? </p>
 									<a href="<?php echo e(url('balance-withdraw')); ?>" class="grren-btn">Withdraw</a>
 								</div>

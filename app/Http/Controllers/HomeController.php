@@ -149,7 +149,7 @@ class HomeController extends Controller
 
     public function postAsearch1(Request $request)
     {
-      //dd($request->all());
+      dd($request->all());
 
       $geo = $request->geolocation;
       $geoa = explode(',', $geo);

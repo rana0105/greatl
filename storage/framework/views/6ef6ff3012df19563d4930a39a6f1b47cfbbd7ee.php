@@ -68,42 +68,35 @@
 				
 				<div class="project-details-similar-area overflow-fix">
 					<h2 class="project-details-similar-title-area">Work History and Feedback</h2>
-					<main class="blog masonry">
-					  <div class="project-details-similar-single-area post overflow-fix">
-							<h2><a href="#">Pull-Up Banner. Modern Simple Deﬂgn</a></h2>
-							<h6>Posted 10 minutes ago</h6>
+					<div  class="row blog masonry">
+						<?php $__currentLoopData = $feedbacks; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $feedback): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+					  	<div class="col-md-6 project-details-similar-single-area post overflow-fix">
+							<h2><a href="<?php echo e(url('project-details', $feedback->jobTitle->id )); ?>"><?php echo e($feedback->jobTitle->p_title); ?></a></h2>
 							<ul>
-								<li>Fixed Price</li>
-								<li>Budget: $200</li>
+								<li>Earned: $<?php echo e($feedback->freelancerFeedback->getpaid); ?> USD</li>
+								<li>Rating:
+									<?php for($star=1; $star<=5; $star++): ?>
+										<?php if($feedback->ratingf >= $star): ?>
+										<i class="fa fa-star" aria-hidden="true"></i>
+										<?php elseif(strpos($feedback->ratingf,'.')): ?>
+										<i class="fa fa-star-half-o" aria-hidden="true"></i>
+										<?php else: ?>
+										<i class="fa fa-star-o" aria-hidden="true"></i>
+										<?php endif; ?>
+									<?php endfor; ?>
+									<?php if($feedback->ratingf != 0): ?>	
+									&nbsp; <?php echo e(round($feedback->ratingf,1)); ?> <?php echo e('out of 5'); ?>
+
+									<?php else: ?>
+									&nbsp; <?php echo e('0 out of 5'); ?>
+
+									<?php endif; ?>
+								</li>
+								<li>Comment: <?php echo e($feedback->descriptionf); ?></li>
 							</ul>
 						</div>
-						<div class="project-details-similar-single-area post overflow-fix">
-							<h2><a href="#">Pull-Up Banner. Modern Simple Deﬂgn</a></h2>
-							<h6>Posted 10 minutes ago</h6>
-							<ul>
-								<li>Hourly</li>
-								<li>Less than 30 hrs/week</li>
-								<li>I to 3 months</li>
-							</ul>
-						</div>
-						<div class="project-details-similar-single-area post overflow-fix">
-							<h2><a href="#">Pull-Up Banner. Modern Simple Deﬂgn</a></h2>
-							<h6>Posted 10 minutes ago</h6>
-							<ul>
-								<li>Hourly</li>
-								<li>Less than 30 hrs/week</li>
-								<li>I to 3 months</li>
-							</ul>
-						</div>
-						<div class="project-details-similar-single-area post overflow-fix">
-							<h2><a href="#">Pull-Up Banner. Modern Simple Deﬂgn</a></h2>
-							<h6>Posted 10 minutes ago</h6>
-							<ul>
-								<li>Fixed Price</li>
-								<li>Budget: $200</li>
-							</ul>
-						</div>
-					</main>
+						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+					</div>
 				</div>
 			</div>
 			<div class="col-lg-4">

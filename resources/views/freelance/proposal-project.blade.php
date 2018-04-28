@@ -23,7 +23,7 @@
 								<a  id="balanceo-available" data-toggle="tab" href="#balance-available" >Past Work</a>
 							</li>
 							<li>
-								<a  id="balanceo-contracts" data-toggle="tab" href="#balance-contracts" >All Contracts</a>
+								<a  id="balanceo-contracts" data-toggle="tab" href="#balance-contracts" >All Projects</a>
 							</li>
 							
 						</ul>

@@ -43,7 +43,7 @@
             </div>
             @yield('content')    
     </div>
-    {{-- @include('partial.locations') --}}
+    @include('partial.locations')
     @include('partial.footer')
     @include('partial.javascript')
     @yield('script')

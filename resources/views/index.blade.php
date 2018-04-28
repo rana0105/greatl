@@ -193,8 +193,13 @@
               <div class="mini-about-single-icon overflow-fix"> 
                 <i class="fa fa-users" aria-hidden="true"></i>
               </div>
+              @php
+              $totalClient = App\User::where('role_idg', 2)->count();
+              $totalFreelancer = App\User::where('role_idg', 3)->count();  
+              $totalUser = $totalClient + $totalFreelancer;
+              @endphp
               <div class="mini-about-single-conetnt  align-self-end overflow-fix">  
-                <h5>{{  App\User::count() }}</h5>
+                <h5>{{ $totalUser }}</h5>
                 <p>User</p>
               </div>
             </div>
@@ -205,7 +210,7 @@
                 <i class="fa fa-briefcase" aria-hidden="true"></i>
               </div>
               <div class="mini-about-single-conetnt  align-self-end overflow-fix">  
-                <h5>{{  App\User::where('role_idg', 2)->count() }}</h5>
+                <h5>{{ $totalClient }}</h5>
                 <p>Client</p>
               </div>
             </div>
@@ -216,7 +221,7 @@
                 <i class="fa fa-user-md" aria-hidden="true"></i>
               </div>
               <div class="mini-about-single-conetnt  align-self-end overflow-fix">  
-                <h5>{{  App\User::where('role_idg', 3)->count() }}</h5>
+                <h5>{{ $totalFreelancer }}</h5>
                 <p>Freelancer</p>
               </div>
             </div>
