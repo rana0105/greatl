@@ -71,7 +71,7 @@
 								Reports
 							  </a>
 							  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="{{ url('freelancer-weekly-timesheet') }}">Weekly Timesheet</a>
+								{{-- <a class="dropdown-item" href="{{ url('freelancer-weekly-timesheet') }}">Weekly Timesheet</a> --}}
 								<a class="dropdown-item" href="{{ url('freelancer-transaction-history') }}">Transaction History</a>
 							  </div>
 							</div>

@@ -86,8 +86,8 @@ Route::group( ['middleware' => ['auth']], function() {
 
     Route::get('project/{project}/payment-history', 'Backend\PaymentController@getPaymentFreelancer')->name('payment.history');
     Route::post('project/{project}', 'Backend\PaymentController@postPaymentFreelancer')->name('payment.history.post');
-     Route::get('freelancer/{jobapply}/payment-history', 'Backend\PaymentController@freelancerPaymentView')->name('freelancer.payment.history');
-
+    Route::get('freelancer/{jobapply}/payment-history', 'Backend\PaymentController@freelancerPaymentView')->name('freelancer.payment.history');
+    Route::post('pdf/history', 'Frontend\FreelancerController@pdfHistory')->name('pdf.history');
 
     Route::get('client-project-details/{id}', 'Frontend\ProjectController@getProjectdetailsclient')->name('client.project.details');
     Route::get('post-edit/{id}', 'Frontend\ProjectController@getProjectedit');

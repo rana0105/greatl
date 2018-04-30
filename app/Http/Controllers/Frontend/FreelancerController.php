@@ -845,8 +845,25 @@ class FreelancerController extends Controller
 
     public function getFreetranshistory()
     {
+        $freeWithdraw = FreeWithdraw::where('user_id', Auth::user()->id)->sum('withdraw_amount');
+        $withdrawPayment = FreePayment::where('freelancer_id', Auth::user()->id)->get();
+        // dd($withdrawPayment);
+        $pendingBalance = FreeWithdraw::where('user_id', Auth::user()->id)->where('status', 0)->get();
 
-          return view('freelance.freelancer-transaction-history');
+        return view('freelance.freelancer-transaction-history', compact('withdrawPayment', 'freeWithdraw', 'pendingBalance'));
+    }
+
+    public function pdfHistory(Request $request)
+    {
+        $from = date('Y-m-d H:i:s', strtotime($request->from));
+        $to = date('Y-m-d H:i:s', strtotime($request->to));
+        $paymentHistory = FreePayment::where('freelancer_id', Auth::user()->id)
+                ->whereBetween('created_at', array($from, $to))
+                ->get();
+            $pdf = \PDF::loadView('project.payment.paymentHistory', [
+                'paymentHistory' => $paymentHistory
+                ]);
+            return $pdf->stream('paymentHistory.pdf');
     }
     
     public function getFreeweektime()
@@ -857,19 +874,30 @@ class FreelancerController extends Controller
 
     public function getBalanceoverview()
     {
-        $jobApply = JobApply::where('freelancer_id', Auth::user()->id)->get()->load('postjob');
-        if(sizeof($jobApply)>0){
-            foreach ($jobApply as $key => $value) {
+        $jobApplyprog = JobApply::where('freelancer_id', Auth::user()->id)
+                ->where('job_apply_status', 2)
+                ->get()->load('postjob');
+        if(sizeof($jobApplyprog)>0){
+            foreach ($jobApplyprog as $key => $value) {
                $clients= User::where('id', $value->postjob->user_id)->first();
                $value['clientName']=$clients;
             }
         }
-        // dd($jobApply);
+        $jobApplypen = JobApply::where('freelancer_id', Auth::user()->id)
+                ->where('job_apply_status', 3)
+                ->get()->load('postjob');
+        if(sizeof($jobApplypen)>0){
+            foreach ($jobApplypen as $key => $value) {
+               $clients= User::where('id', $value->postjob->user_id)->first();
+               $value['clientName']=$clients;
+            }
+        }
+        // dd($jobApplyprog);
         $freeWithdraw = FreeWithdraw::where('user_id', Auth::user()->id)->sum('withdraw_amount');
         $withdrawPayment = FreePayment::where('freelancer_id', Auth::user()->id)->get();
         $pendingBalance = FreeWithdraw::where('user_id', Auth::user()->id)->where('status', 0)->get();
 
-        return view('freelance.balance-overview', compact('withdrawPayment', 'freeWithdraw', 'pendingBalance', 'jobApply'));
+        return view('freelance.balance-overview', compact('withdrawPayment', 'freeWithdraw', 'pendingBalance', 'jobApplyprog', 'jobApplypen'));
     }
 
     

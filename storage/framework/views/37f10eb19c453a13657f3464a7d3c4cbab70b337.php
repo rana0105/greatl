@@ -38,7 +38,8 @@
 										</tr>
 									  </thead>
 									  <tbody>
-									  	<?php $__currentLoopData = $jobApply; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $job): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+									  	<?php if(sizeof($jobApplyprog)>0): ?>
+									  	<?php $__currentLoopData = $jobApplyprog; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $job): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 											<tr>
 											  <td><a href="#"><?php echo e($job->postjob->p_title); ?></a></td>
 											  <td><?php echo e($job->clientName->name); ?></td>
@@ -48,8 +49,13 @@
 										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 											  <td></td>
 											  <td class="tabil-total">Total</td>
-											  <th>$<?php echo e($jobApply->sum('getpaid')); ?> (USD)</th>
+											  <th>$<?php echo e($jobApplyprog->sum('getpaid')); ?> (USD)</th>
 											</tr>
+										<?php else: ?>
+										<tr>
+											<td colspan="3">Data not found yet !</td>
+										</tr>
+										<?php endif; ?>
 									  </tbody>
 									</table>
 								</div>
@@ -62,22 +68,30 @@
 										  <th>Project Name</th>
 										  <th>Client</th>
 										  <th>Proccessing Date</th>
-										  <th>Amount Name</th>
+										  <th>Amount</th>
 										</tr>
 									  </thead>
 									  <tbody>
+									  	<?php if(sizeof($jobApplypen)>0): ?>
+									  	<?php $__currentLoopData = $jobApplypen; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $jobpen): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 											<tr>
-											  <td><a href="3.3-Project-Details.php">UX Design and Front end development</a></td>
-											  <td>Mark Samad</td>
-											  <td></td>
-											  <th>$300 (USD)</th>
+											  <td><a href="#"><?php echo e($jobpen->postjob->p_title); ?></a></td>
+											  <td><?php echo e($jobpen->clientName->name); ?></td>
+											  <td><?php echo e(date('d-M-Y', strtotime($jobpen->updated_at))); ?></td>
+											  <th>$<?php echo e($jobpen->getpaid); ?> (USD)</th>
 											</tr>
+											<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 											<tr>
 											  <td></td>
 											  <td></td>
 											  <td class="tabil-total">Total</td>
-											  <th>$300 (USD)</th>
+											  <th>$<?php echo e($jobApplypen->sum('getpaid')); ?> (USD)</th>
 											</tr>
+											<?php else: ?>
+											<tr>
+												<td colspan="4">Data not found yet !</td>
+											</tr>
+											<?php endif; ?>
 									  </tbody>
 									</table>
 								</div>
