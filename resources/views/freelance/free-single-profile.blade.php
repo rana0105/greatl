@@ -10,7 +10,11 @@
 						<div class="row padding-o">
 							<div class="col-lg-3">	
 								<div class="single-profile-item-img overflow-fix">
+									@if($freelencerProfile->freelencer->p_image != null)
 									<a href="#"><img src="{{ asset('app_images/resize_images') }}/{{ $freelencerProfile->freelencer->p_image }}"></a>
+									@else
+									<a href="#"><img src="{{ asset('app_images/resize_images/fakeprofile.png') }}"></a>
+									@endif
 								</div>
 							</div>
 							<div class="col-lg-9 padding-o">	
@@ -39,7 +43,7 @@
 													@if($ratingAvg != 0)	
 													&nbsp; {{ round($ratingAvg,1) }} {{ 'out of 5' }}
 													@else
-													&nbsp; {{ '0 out of 5' }}
+													&nbsp; {{ 'No Review' }}
 													@endif	
 												</div>
 											</li>
@@ -66,11 +70,16 @@
 				<div class="project-details-similar-area overflow-fix">
 					<h2 class="project-details-similar-title-area">Work History and Feedback</h2>
 					<div  class="row blog masonry">
+						@if(sizeof($feedbacks)>0)
 						@foreach($feedbacks as $feedback)
 					  	<div class="col-md-6 project-details-similar-single-area post overflow-fix">
 							<h2><a href="{{ url('project-details', $feedback->jobTitle->id ) }}">{{ $feedback->jobTitle->p_title }}</a></h2>
 							<ul>
+								@if($feedback->freelancerFeedbac != Null)
 								<li>Earned: ${{ $feedback->freelancerFeedback->getpaid }} USD</li>
+								@else
+								<li>Earned: $0 USD</li>
+								@endif
 								<li>Rating:
 									@for($star=1; $star<=5; $star++)
 										@if($feedback->ratingf >= $star)
@@ -91,6 +100,11 @@
 							</ul>
 						</div>
 						@endforeach
+						@else
+						<div class="col-md-6 overflow-fix">
+							There's no work history!
+						</div>
+						@endif
 					</div>
 				</div>
 			</div>

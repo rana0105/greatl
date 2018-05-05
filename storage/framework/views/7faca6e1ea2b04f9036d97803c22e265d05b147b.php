@@ -22,9 +22,7 @@
 						<li>
 							<a href="#password" >Password</a>
 						</li>
-						<li>
-							<a href="#membership-bid" >Membership & Bid</a>
-						</li>
+						
 						<li>
 							<a href="#languages" >Languages</a>
 						</li>
@@ -343,24 +341,7 @@
 							</div>
 						</form>
 					</div>
-					<div id="membership-bid" class="box-white-bg padding-to login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
-						<div class="login-freelancer-profile-single-item-headding overflow-fix">
-							<h2>Membership & Bid</h2>
-						</div>
-						<form class="login-freelancer-profile-single-item-payment overflow-fix" role="form" action="<?php echo e(route('freelancer.membership.update')); ?>" method="POST" enctype="multipart/form-data" files="true">
-							<?php echo e(csrf_field()); ?>
-
-							<div class="login-freelancer-profile-single-item-blance overflow-fix d-flex  justify-content-between">
-								<div class="login-freelancer-profile-single-item-blane-cnet">
-									<h6>Current Plan</h6>
-									<p>Basic Freelancer - 15 Bids/week</p>
-								</div>
-								<div class="form-smubit-ny align-self-center">
-									<button type="submit">Upgrade Now</button>
-								</div>
-							</div>
-						</form>
-					</div>
+					
 					<div id="languages" class="box-white-bg padding-to  login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
 					<form class="login-freelancer-profile-single-item-payment overflow-fix" role="form" action="<?php echo e(route('freelancer.language.update')); ?>" method="POST" enctype="multipart/form-data" files="true">
 						<?php echo e(csrf_field()); ?>

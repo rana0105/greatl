@@ -14,7 +14,7 @@
 						<div class="search-field-opacity">
 							<i class="fa fa-search" aria-hidden="true"></i><i class="fa fa-angle-down" aria-hidden="true"></i>
 							<select id="headerselect" class="header-search asearch" >
-							  <option value="">--Select--</option>
+							  <option value=""></option>
 							  <option value="project">Find Projcet</option>
 							  <option value="freelancer">Find Freelancer</option>
 							</select>

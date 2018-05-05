@@ -46,7 +46,7 @@ class JobApplyController extends Controller
             foreach ($files as $file)
             {
                 $filename = rand(10,100) . time() . '.' . $file->getClientOriginalExtension();
-                $destinationPath = 'app_images/resize_images/';
+                $destinationPath = '/home3/bamrmm/public_html/public/app_images/resize_images/';
                 $file->move($destinationPath, $filename);
 
                 $ffile = new FreeFile;

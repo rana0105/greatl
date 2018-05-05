@@ -31,6 +31,7 @@ class FreelancerController extends Controller
     {
         $freelencerProfile = $freelancer->load('freelencer','freelancerRating');
         $feedbacks = FreeRating::where('freelancer_idrf', $freelancer->id)->get()->unique('job_idrf')->load('freelancerFeedback', 'jobTitle');
+        // dd($feedbacks);
          return view('freelance.free-single-profile', compact('freelencerProfile', 'feedbacks'));
     }
 

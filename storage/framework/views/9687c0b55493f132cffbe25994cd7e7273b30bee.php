@@ -1,4 +1,3 @@
-
     <div id="map">
        
     </div>
@@ -37,7 +36,7 @@
            //console.log(result);
            document.getElementById("current").value = result;
            //document.getElementById("rana").value = results;
-           document.getElementById("latlong").value = resultp;
+           // document.getElementById("latlong").value = resultp;
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
             infoWindow.open(map);

@@ -10,7 +10,11 @@
 						<div class="row padding-o">
 							<div class="col-lg-3">	
 								<div class="single-profile-item-img overflow-fix">
+									<?php if($freelencerProfile->freelencer->p_image != null): ?>
 									<a href="#"><img src="<?php echo e(asset('app_images/resize_images')); ?>/<?php echo e($freelencerProfile->freelencer->p_image); ?>"></a>
+									<?php else: ?>
+									<a href="#"><img src="<?php echo e(asset('app_images/resize_images/fakeprofile.png')); ?>"></a>
+									<?php endif; ?>
 								</div>
 							</div>
 							<div class="col-lg-9 padding-o">	
@@ -40,7 +44,7 @@
 													&nbsp; <?php echo e(round($ratingAvg,1)); ?> <?php echo e('out of 5'); ?>
 
 													<?php else: ?>
-													&nbsp; <?php echo e('0 out of 5'); ?>
+													&nbsp; <?php echo e('No Review'); ?>
 
 													<?php endif; ?>	
 												</div>
@@ -69,11 +73,16 @@
 				<div class="project-details-similar-area overflow-fix">
 					<h2 class="project-details-similar-title-area">Work History and Feedback</h2>
 					<div  class="row blog masonry">
+						<?php if(sizeof($feedbacks)>0): ?>
 						<?php $__currentLoopData = $feedbacks; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $feedback): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 					  	<div class="col-md-6 project-details-similar-single-area post overflow-fix">
 							<h2><a href="<?php echo e(url('project-details', $feedback->jobTitle->id )); ?>"><?php echo e($feedback->jobTitle->p_title); ?></a></h2>
 							<ul>
+								<?php if($feedback->freelancerFeedbac != Null): ?>
 								<li>Earned: $<?php echo e($feedback->freelancerFeedback->getpaid); ?> USD</li>
+								<?php else: ?>
+								<li>Earned: $0 USD</li>
+								<?php endif; ?>
 								<li>Rating:
 									<?php for($star=1; $star<=5; $star++): ?>
 										<?php if($feedback->ratingf >= $star): ?>
@@ -96,6 +105,11 @@
 							</ul>
 						</div>
 						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+						<?php else: ?>
+						<div class="col-md-6 overflow-fix">
+							There's no work history!
+						</div>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>

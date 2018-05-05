@@ -95,6 +95,12 @@ input:focus {
     border: transparent;
 }
 :focus {outline:0;}
+
+.login-freelancer-profile-setting-sidebar-area.overflow-fix { 
+max-width: 245px; 
+top: 35px !important;
+}
+
 .table-bordered thead th, .table-bordered thead td {
 	border-bottom-width: 1px;
 }
@@ -763,6 +769,10 @@ input[type=number]
     margin-top: 0px;
 }
 
+.range-slider-wrap {
+   margin-top: 18px;
+}
+
 .header-search-bar {
     position: relative;
 }
@@ -779,14 +789,23 @@ input[type=number]
     margin-right: 3px;
 }
 
+span.select2-dropdown.select2-dropdown--below {
+    min-width: 135px;
+}
+
+ul#select2-headerselect-results li:first-child {
+   display: none;
+}
+
 .search-field-opacity i:nth-child(2) {
     font-size: 17px;
 }
+
 .header-search-bar .search-field-opacity .select2 {
     margin-left: -35px;
     margin-top: -1px;
     opacity: 0;
-    width: 250px !important;
+    width: 40px !important;
 }
 
 .search-field-opacity .select2-container--open {
@@ -1326,7 +1345,7 @@ input[type=number]
 }
 
 .search-single-field .select2 {
-    width: 170px !important;
+    width: 150px !important;
 }
 .search-single-field .select2-container--default .select2-selection--single {
     background-color: #F8F9FD;
@@ -1377,16 +1396,19 @@ input[type=number]
 .search-single-field  .select2-container--default .select2-selection--single .select2-selection__arrow {
 	height:24px;
 }
+
 .search-single-field input {
     border: 1px solid #acacac38;
-    width: 120px;
+    width: 100%;
     height: 25px;
     padding: 5px;
     font-size: 11px;
 }
+
 .search-single-field {
-    width: 120px;
+    width: 160px;
 }
+
 .search-single-field .irs span {
     font-size: 10px;
     color: #000;
@@ -3036,10 +3058,7 @@ input.input-filed-none {
 
 
 
-.login-freelancer-profile-setting-sidebar-area.overflow-fix {
- max-width: 245px; 
- top: 35px !important;
-}
+
 
 
 @media (min-width: 1200px) {

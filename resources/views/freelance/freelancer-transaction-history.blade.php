@@ -45,15 +45,14 @@
 										<h6>To</h6>
 										<input type="text" name="to" id="datepicker1"><h5><i class="fa fa-calendar" aria-hidden="true"/></i></h5>
 									</div>
-									<div class="d-flex short-table-css overflow-fix">
+									{{-- <div class="d-flex short-table-css overflow-fix">
 										<p>Short</p>
 										<select  class="project-filter-select">
-											<option >50</option>
 											<option >10</option>
 											<option >20</option>
-											<option >5</option>
+											<option >50</option>
 										</select>
-									</div>
+									</div> --}}
 									<div class="balance-overview-if-work overflow-fix padding-to">
 										<table class="table table-bordered table-hover table-responsive margin-o">
 										  <thead>
@@ -78,7 +77,7 @@
 											@endforeach
 											@else
 												<tr>
-													<td>No Data found yet !</td>
+													<td style="text-align: center;" colspan="5">No Data found yet !</td>
 												</tr>
 											@endif
 											</tbody>

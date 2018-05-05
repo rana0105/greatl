@@ -61,7 +61,7 @@ class ClientController extends Controller
         $profile = ClientFreelancer::where('user_idu', $this->user()->id)->first();
         if($images != null) {              
             $filename = time().'.'.$images->getClientOriginalExtension();
-            $location = 'app_images/resize_images/'. $filename;
+            $location = '/home3/bamrmm/public_html/public/app_images/resize_images/'. $filename;
             Image::make($images)->resize(600 , 600)->save($location);
 
             $oldFilename = $profile->p_image;

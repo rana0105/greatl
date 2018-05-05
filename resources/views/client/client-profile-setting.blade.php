@@ -16,9 +16,9 @@
 						<li>
 							<a href="#password" >Password</a>
 						</li>
-						<li>
+						{{-- <li>
 							<a href="#membership-bid" >Membership & Bid</a>
-						</li>
+						</li> --}}
 						<li>
 							<a href="#languages" >Languages</a>
 						</li>
@@ -203,7 +203,7 @@
 							</div>
 						</form>
 					</div>
-					<div id="membership-bid" class="box-white-bg padding-to login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
+					{{-- <div id="membership-bid" class="box-white-bg padding-to login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
 						<div class="login-freelancer-profile-single-item-headding overflow-fix">
 							<h2>Membership & Bid</h2>
 						</div>
@@ -219,7 +219,7 @@
 								</div>
 							</div>
 						</form>
-					</div>
+					</div> --}}
 					<div id="languages" class="box-white-bg padding-to  login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
 					<form class="login-freelancer-profile-single-item-payment overflow-fix" role="form" action="{{ route('client.language.update') }}" method="POST" enctype="multipart/form-data" files="true">
 						{{ csrf_field() }}

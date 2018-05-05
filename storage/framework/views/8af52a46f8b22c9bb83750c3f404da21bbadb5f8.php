@@ -16,11 +16,9 @@
 						<li>
 							<a href="#password" >Password</a>
 						</li>
+						
 						<li>
-							<a href="#membership-bid" >Membership & Bid</a>
-						</li>
-						<li>
-							<a href="#membership-bid" >Languages</a>
+							<a href="#languages" >Languages</a>
 						</li>
 					</ul>
 				</div>
@@ -65,7 +63,7 @@
 							<div class="login-freelancer-profile-single-item-input overflow-fix">
 								<p>Photo</p>
 								<div class="box overflow-fix d-flex align-items-end">
-									<div class="profile-img-upload-area js--image-preview overflow-fix" style="background-image: url(<?php echo e(url('app_images/resize_images/')); ?>/<?php echo e(isset($profile->p_image) ? $profile->p_image : 'Default'); ?>);">
+									<div class="profile-img-upload-area js--image-preview overflow-fix" style="background-image: url(<?php echo e(asset('app_images/resize_images/')); ?>/<?php echo e(isset($profile->p_image) ? $profile->p_image : 'Default'); ?>);">
 									<img src="">
 									</div>
 									<div class="profile-img-upload-button overflow-fix">
@@ -159,7 +157,7 @@
 							</div>
 						</form>
 					</div>
-					<div id="profile" class="box-white-bg padding-to  login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
+					<div id="password" class="box-white-bg padding-to  login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
 						<div class="login-freelancer-profile-single-item-headding overflow-fix">
 							<h2>Change Password</h2>
 							<?php if(session('successpas')): ?>
@@ -214,25 +212,8 @@
 							</div>
 						</form>
 					</div>
-					<div id="membership-bid" class="box-white-bg padding-to login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
-						<div class="login-freelancer-profile-single-item-headding overflow-fix">
-							<h2>Membership & Bid</h2>
-						</div>
-						<form class="login-freelancer-profile-single-item-payment overflow-fix" role="form" action="<?php echo e(route('client.membership.update')); ?>" method="POST" enctype="multipart/form-data" files="true">
-							<?php echo e(csrf_field()); ?>
-
-							<div class="login-freelancer-profile-single-item-blance overflow-fix d-flex  justify-content-between">
-								<div class="login-freelancer-profile-single-item-blane-cnet">
-									<h6>Current Plan</h6>
-									<p>Basic Freelancer - 15 Bids/week</p>
-								</div>
-								<div class="form-smubit-ny align-self-center">
-									<button type="submit">Upgrade Now</button>
-								</div>
-							</div>
-						</form>
-					</div>
-					<div id="profile" class="box-white-bg padding-to  login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
+					
+					<div id="languages" class="box-white-bg padding-to  login-freelancer-profile-setting-profile login-freelancer-profile-single-item overflow-fix">
 					<form class="login-freelancer-profile-single-item-payment overflow-fix" role="form" action="<?php echo e(route('client.language.update')); ?>" method="POST" enctype="multipart/form-data" files="true">
 						<?php echo e(csrf_field()); ?>
 
@@ -336,14 +317,15 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('script'); ?>
-<script type="text/javascript">
-
+<script src="http://stickyjs.com/jquery.sticky.js"></script>
+<script>
 $( document ).ready(function() {
     $('input[type="checkbox"]').on('change', function() {
 	   $('input[type="checkbox"]').not(this).prop('checked', false);
 	});
 
 	$('.errshow').delay(2000).fadeOut();
+	$(".login-freelancer-profile-setting-sidebar-area").sticky({topSpacing:0});
 });
 	
 </script>
